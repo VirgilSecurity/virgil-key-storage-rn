@@ -1,6 +1,6 @@
 # @virgilsecurity/key-storage-rn
 [![npm](https://img.shields.io/npm/v/@virgilsecurity/key-storage-rn.svg)](https://www.npmjs.com/package/@virgilsecurity/key-storage-rn)
-[![Build Status](https://travis-ci.org/VirgilSecurity/virgil-key-storage-rn.svg?branch=master)](https://travis-ci.org/VirgilSecurity/virgil-key-storage-rn)
+[![Build Status](https://travis-ci.com/VirgilSecurity/key-storage-rn.svg?branch=master)](https://travis-ci.com/VirgilSecurity/key-storage-rn)
 [![GitHub license](https://img.shields.io/badge/license-BSD%203--Clause-blue.svg)](https://github.com/VirgilSecurity/virgil-key-storage-rn/blob/master/LICENSE)
 
 This package provides an implementation of [IKeyEntryStorage](https://github.com/VirgilSecurity/virgil-sdk-javascript/blob/master/src/Storage/KeyEntryStorage/IKeyEntryStorage.ts) for React Native.
