@@ -1,4 +1,4 @@
-import { IKeyEntry } from 'virgil-sdk';
+type IKeyEntry = import('virgil-sdk').IKeyEntry;
 
 interface SerializedKeyEntry {
   name: string;
