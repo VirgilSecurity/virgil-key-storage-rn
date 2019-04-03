@@ -1,13 +1,10 @@
-import {
-  IKeyEntryStorage,
-  IKeyEntry,
-  ISaveKeyEntryParams,
-  IUpdateKeyEntryParams,
-  KeyEntryAlreadyExistsError,
-  KeyEntryDoesNotExistError,
-} from 'virgil-sdk';
-
 import IStorage from './IStorage';
+import { KeyEntryAlreadyExistsError, KeyEntryDoesNotExistError } from './errors';
+
+type IKeyEntryStorage = import('virgil-sdk').IKeyEntryStorage;
+type IKeyEntry = import('virgil-sdk').IKeyEntry;
+type ISaveKeyEntryParams = import('virgil-sdk').ISaveKeyEntryParams;
+type IUpdateKeyEntryParams = import('virgil-sdk').IUpdateKeyEntryParams;
 
 export default class KeyEntryStorage implements IKeyEntryStorage {
   private readonly storage: IStorage;

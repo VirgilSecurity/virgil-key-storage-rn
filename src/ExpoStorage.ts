@@ -1,8 +1,9 @@
 import { SecureStore } from 'expo';
-import { IKeyEntry } from 'virgil-sdk';
 
 import IStorage from './IStorage';
 import { serializeKeyEntries, deserializeKeyEntries } from './KeyEntryUtils';
+
+type IKeyEntry = import('virgil-sdk').IKeyEntry;
 
 export interface ExpoStorageOptions extends SecureStore.SecureStoreOptions {
   key?: string;

@@ -4,26 +4,29 @@ import {
   getGenericPassword,
   resetGenericPassword,
 } from 'react-native-keychain';
-import { IKeyEntry } from 'virgil-sdk';
 
 import IStorage from './IStorage';
 import { serializeKeyEntries, deserializeKeyEntries } from './KeyEntryUtils';
+
+type IKeyEntry = import('virgil-sdk').IKeyEntry;
 
 export interface NativeStorageOptions extends Options {
   username?: string;
 }
 
 export default class NativeStorage implements IStorage {
-  private static readonly DEFAULT_USERNAME: string = '_VIRGIL_KEY_ENTRY_STORAGE';
+  private static readonly DEFAULT_KEYCHAIN_SERVICE_NAME: string = '_VIRGIL_KEY_ENTRY_STORAGE';
 
-  private readonly username: string = NativeStorage.DEFAULT_USERNAME;
+  private readonly keychainServiceName: string = NativeStorage.DEFAULT_KEYCHAIN_SERVICE_NAME;
   private readonly options?: Options;
 
   constructor(options?: NativeStorageOptions) {
-    if (typeof options !== 'undefined') {
-      const { username, ...keychainOptions } = options;
-      this.username = username || NativeStorage.DEFAULT_USERNAME;
-      this.options = keychainOptions;
+    if (options == null) {
+      this.options = {
+        service: this.keychainServiceName,
+      };
+    } else {
+      this.options = options;
     }
   }
 
@@ -37,7 +40,7 @@ export default class NativeStorage implements IStorage {
 
   async setKeyEntries(keyEntries: Map<string, IKeyEntry>): Promise<void> {
     const value = serializeKeyEntries(keyEntries);
-    await setGenericPassword(this.username, value, this.options);
+    await setGenericPassword(this.keychainServiceName, value, this.options);
   }
 
   async clear(): Promise<void> {
