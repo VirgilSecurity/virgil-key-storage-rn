@@ -8,21 +8,14 @@ This package provides an implementation of [IKeyEntryStorage](https://github.com
 ## Install
 First you will need the package itself.
 ```sh
-npm install @virgilsecurity/key-storage-rn
+npm install @virgilsecurity/key-storage-rn@next
 ```
-Then you will need to install [virgil-sdk](https://github.com/VirgilSecurity/virgil-sdk-javascript) (which itself depends on [virgil-crypto](https://github.com/VirgilSecurity/virgil-crypto-javascript)).
+
+Then you will need to install the pre-release versions of [virgil-sdk](https://github.com/VirgilSecurity/virgil-sdk-javascript) and [virgil-crypto](https://github.com/VirgilSecurity/virgil-crypto-javascript).
 ```sh
-npm install virgil-crypto virgil-sdk
+npm install virgil-crypto@next virgil-sdk@next
 ```
-React Native doesn't have a built-in [Buffer](https://nodejs.org/api/buffer.html). Therefore you will need to provide an implementation of it. We will use [this package](https://github.com/feross/buffer) for this purpose.
-```sh
-npm install buffer
-```
-Add the following code in the beginning of you entry point file to make `Buffer` available everywhere.
-```js
-import { Buffer } from 'buffer';
-global.Buffer = Buffer;
-```
+
 Lastly you need to install [react-native-keychain](https://github.com/oblador/react-native-keychain) if you're using React Native with native code.
 ```sh
 npm install react-native-keychain
@@ -50,10 +43,7 @@ import { VirgilCrypto, VirgilPrivateKeyExporter } from 'virgil-crypto';
 import { PrivateKeyStorage } from 'virgil-sdk';
 
 const virgilCrypto = new VirgilCrypto();
-const virgilPrivateKeyExporter = new VirgilPrivateKeyExporter(
-  virgilCrypto,
-  'password',
-);
+const virgilPrivateKeyExporter = new VirgilPrivateKeyExporter(virgilCrypto);
 const expoKeyEntryStorage = createExpoKeyEntryStorage();
 const privateKeyStorage = new PrivateKeyStorage(
   virgilPrivateKeyExporter,
