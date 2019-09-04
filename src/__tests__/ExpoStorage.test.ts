@@ -55,14 +55,14 @@ describe('ExpoStorage', () => {
       expect.assertions(2);
       const keyEntry1 = {
         name: 'name1',
-        value: Buffer.from('value1'),
+        value: 'dmFsdWUx',
         meta: { key: 'value' },
         creationDate: new Date(),
         modificationDate: new Date(),
       };
       const keyEntry2 = {
         name: 'name2',
-        value: Buffer.from('value2'),
+        value: 'dmFsdWUy',
         meta: { key: 'value' },
         creationDate: new Date(),
         modificationDate: new Date(),
@@ -82,7 +82,7 @@ describe('ExpoStorage', () => {
       expect.assertions(1);
       const keyEntry = {
         name: 'name',
-        value: Buffer.from('value'),
+        value: 'dmFsdWU=',
         meta: { key: 'value' },
         creationDate: new Date(),
         modificationDate: new Date(),
@@ -100,7 +100,7 @@ describe('ExpoStorage', () => {
       expect.assertions(1);
       const keyEntry = {
         name: 'name',
-        value: Buffer.from('value'),
+        value: 'dmFsdWU=',
         meta: { key: 'value' },
         creationDate: new Date(),
         modificationDate: new Date(),

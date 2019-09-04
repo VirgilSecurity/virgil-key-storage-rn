@@ -8,12 +8,10 @@ interface SerializedKeyEntry {
   modificationDate: string;
 }
 
-const VALUE_ENCODING = 'base64';
-
 function serializeKeyEntry(keyEntry: IKeyEntry): SerializedKeyEntry {
   return {
     name: keyEntry.name,
-    value: keyEntry.value.toString(VALUE_ENCODING),
+    value: keyEntry.value,
     meta: keyEntry.meta,
     creationDate: keyEntry.creationDate.toISOString(),
     modificationDate: keyEntry.modificationDate.toISOString(),
@@ -23,7 +21,7 @@ function serializeKeyEntry(keyEntry: IKeyEntry): SerializedKeyEntry {
 function deserializeKeyEntry(serializedKeyEntry: SerializedKeyEntry): IKeyEntry {
   return {
     name: serializedKeyEntry.name,
-    value: Buffer.from(serializedKeyEntry.value, VALUE_ENCODING),
+    value: serializedKeyEntry.value,
     meta: serializedKeyEntry.meta,
     creationDate: new Date(serializedKeyEntry.creationDate),
     modificationDate: new Date(serializedKeyEntry.modificationDate),
