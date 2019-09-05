@@ -6,24 +6,33 @@
 This package provides an implementation of [IKeyEntryStorage](https://github.com/VirgilSecurity/virgil-sdk-javascript/blob/master/src/Storage/KeyEntryStorage/IKeyEntryStorage.ts) for React Native.
 
 ## Install
-First you will need the package itself.
+First you will need this package itself. Note the `@next` tag is required.
 ```sh
 npm install @virgilsecurity/key-storage-rn@next
 ```
 
-Then you will need to install the pre-release versions of [virgil-sdk](https://github.com/VirgilSecurity/virgil-sdk-javascript) and [virgil-crypto](https://github.com/VirgilSecurity/virgil-crypto-javascript).
+Then will need to make sure you have the current pre-release version (v6.x) of [virgil-sdk](https://github.com/VirgilSecurity/virgil-sdk-javascript) installed. This is where the high-level `PrivateKeyStorage` class is defined.
 ```sh
-npm install virgil-crypto@next virgil-sdk@next
+npm install virgil-sdk@next
 ```
 
-Lastly you need to install [react-native-keychain](https://github.com/oblador/react-native-keychain) if you're using React Native with native code.
+Then install a package that contains helper classes depended upon by the `PrivateKeyStorage`, namely the `PrivateKeyExporter` class.
+```sh
+npm install @virgilsecurity/sdk-crypto
+```
+
+Then install the VirgilCrypto library for React Native - [react-native-virgil-crypto](https://github.com/VirgilSecurity/react-native-virgil-crypto). Follow the instructions in [README](https://github.com/VirgilSecurity/react-native-virgil-crypto#getting-started) to install it if you haven't already.
+
+Lastly you'll need to install [react-native-keychain](https://github.com/oblador/react-native-keychain) if you're using React Native with native code.
 ```sh
 npm install react-native-keychain
 ```
 
 ## Usage
+
 There are 2 options:
-- If you're using React Native with [Expo](https://expo.io):
+- If you're using React Native with [ExpoKit](https://docs.expo.io/versions/v34.0.0/expokit/overview/):
+  > Important! Only ExpoKit is supported because `react-native-virgil-crypto` requires you to add custom native modules. So you will need to eject to ExpoKit to use this library.
   ```js
   import createExpoKeyEntryStorage from '@virgilsecurity/key-storage-rn/expo';
   const keyEntryStorage = createExpoKeyEntryStorage();
@@ -38,16 +47,16 @@ Both of them return an instance of class that implements [IKeyEntryStorage](http
 ## Example
 Here is an example on how to use [PrivateKeyStorage](https://github.com/VirgilSecurity/virgil-sdk-javascript/blob/master/src/Storage/PrivateKeyStorage.ts) to store private keys.
 ```js
-import createExpoKeyEntryStorage from '@virgilsecurity/key-storage-rn/expo';
-import { VirgilCrypto, VirgilPrivateKeyExporter } from 'virgil-crypto';
+import createNativeKeyEntryStorage from '@virgilsecurity/key-storage-rn/native';
+import { virgilCrypto } from 'react-native-virgil-crypto';
+import { VirgilPrivateKeyExporter } from '@virgilsecurity/sdk-crypto';
 import { PrivateKeyStorage } from 'virgil-sdk';
 
-const virgilCrypto = new VirgilCrypto();
 const virgilPrivateKeyExporter = new VirgilPrivateKeyExporter(virgilCrypto);
-const expoKeyEntryStorage = createExpoKeyEntryStorage();
+const keyEntryStorage = createNativeKeyEntryStorage();
 const privateKeyStorage = new PrivateKeyStorage(
   virgilPrivateKeyExporter,
-  expoKeyEntryStorage,
+  keyEntryStorage
 );
 
 const { privateKey: privateKey1 } = virgilCrypto.generateKeys();
