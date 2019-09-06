@@ -42,7 +42,7 @@ describe('KeyEntryStorage', () => {
   describe('save', () => {
     it("should save entry in 'Storage'", async () => {
       expect.assertions(1);
-      const params = { name: 'name', value: Buffer.from('value') };
+      const params = { name: 'name', value: 'dmFsdWU=' };
       const keyEntry = await keyEntryStorage.save(params);
       const keyEntries = await storage.getKeyEntries();
       expect(keyEntry).toEqual(keyEntries.get(params.name));
@@ -50,8 +50,8 @@ describe('KeyEntryStorage', () => {
 
     it("should throw 'KeyEntryAlreadyExistsError' if entry already exists", async () => {
       expect.assertions(1);
-      const params1 = { name: 'name', value: Buffer.from('value1') };
-      const params2 = { name: params1.name, value: Buffer.from('value2') };
+      const params1 = { name: 'name', value: 'dmFsdWUx' };
+      const params2 = { name: params1.name, value: 'dmFsdWUy' };
       await keyEntryStorage.save(params1);
       await expect(keyEntryStorage.save(params2)).rejects.toBeInstanceOf(
         KeyEntryAlreadyExistsError,
@@ -64,7 +64,7 @@ describe('KeyEntryStorage', () => {
       expect.assertions(1);
       const params = {
         name: 'name',
-        value: Buffer.from('value'),
+        value: 'dmFsdWU=',
         meta: {
           key: 'value',
         },
@@ -84,7 +84,7 @@ describe('KeyEntryStorage', () => {
   describe('exists', () => {
     it("should return 'true' if entry exists", async () => {
       expect.assertions(1);
-      const params = { name: 'name', value: Buffer.from('value') };
+      const params = { name: 'name', value: 'dmFsdWU=' };
       await keyEntryStorage.save(params);
       const result = await keyEntryStorage.exists(params.name);
       expect(result).toBeTruthy();
@@ -100,7 +100,7 @@ describe('KeyEntryStorage', () => {
   describe('remove', () => {
     it("should delete entry from 'Storage'", async () => {
       expect.assertions(1);
-      const params = { name: 'name', value: Buffer.from('value') };
+      const params = { name: 'name', value: 'dmFsdWU=' };
       await keyEntryStorage.save(params);
       await keyEntryStorage.remove(params.name);
       const keyEntries = await storage.getKeyEntries();
@@ -109,7 +109,7 @@ describe('KeyEntryStorage', () => {
 
     it("should return 'true' if entry was deleted", async () => {
       expect.assertions(1);
-      const params = { name: 'name', value: Buffer.from('value') };
+      const params = { name: 'name', value: 'dmFsdWU=' };
       await keyEntryStorage.save(params);
       await expect(keyEntryStorage.remove(params.name)).resolves.toBeTruthy();
     });
@@ -123,9 +123,9 @@ describe('KeyEntryStorage', () => {
   describe('list', () => {
     it('should return all existing entries', async () => {
       expect.assertions(1);
-      await keyEntryStorage.save({ name: 'name1', value: Buffer.from('value1') });
-      await keyEntryStorage.save({ name: 'name2', value: Buffer.from('value2') });
-      await keyEntryStorage.save({ name: 'name3', value: Buffer.from('value3') });
+      await keyEntryStorage.save({ name: 'name1', value: 'dmFsdWUx' });
+      await keyEntryStorage.save({ name: 'name2', value: 'dmFsdWUy' });
+      await keyEntryStorage.save({ name: 'name3', value: 'dmFsdWU0' });
       const keyEntries = await keyEntryStorage.list();
       expect(keyEntries).toHaveLength(3);
     });
@@ -136,14 +136,14 @@ describe('KeyEntryStorage', () => {
       expect.assertions(1);
       const params1 = {
         name: 'name',
-        value: Buffer.from('value1'),
+        value: 'dmFsdWUx',
         meta: {
           key: 'value1',
         },
       };
       const params2 = {
         name: params1.name,
-        value: Buffer.from('value2'),
+        value: 'dmFsdWUy',
         meta: {
           key: 'value2',
         },
@@ -157,14 +157,14 @@ describe('KeyEntryStorage', () => {
       expect.assertions(2);
       const params1 = {
         name: 'name',
-        value: Buffer.from('value1'),
+        value: 'dmFsdWUx',
         meta: {
           key: 'value1',
         },
       };
       const params2 = {
         name: params1.name,
-        value: Buffer.from('value2'),
+        value: 'dmFsdWUy',
         meta: {
           key: 'value2',
         },
@@ -178,7 +178,7 @@ describe('KeyEntryStorage', () => {
 
     it("should throw 'KeyEntryDoesNotExistError' if entry does not exist", async () => {
       expect.assertions(1);
-      const params = { name: 'name', value: Buffer.from('value') };
+      const params = { name: 'name', value: 'dmFsdWU=' };
       await expect(keyEntryStorage.update(params)).rejects.toBeInstanceOf(
         KeyEntryDoesNotExistError,
       );
@@ -188,9 +188,9 @@ describe('KeyEntryStorage', () => {
   describe('clear', () => {
     it('should deleted all entries', async () => {
       expect.assertions(1);
-      await keyEntryStorage.save({ name: 'name1', value: Buffer.from('value1') });
-      await keyEntryStorage.save({ name: 'name2', value: Buffer.from('value2') });
-      await keyEntryStorage.save({ name: 'name3', value: Buffer.from('value3') });
+      await keyEntryStorage.save({ name: 'name1', value: 'dmFsdWUx' });
+      await keyEntryStorage.save({ name: 'name2', value: 'dmFsdWUy' });
+      await keyEntryStorage.save({ name: 'name3', value: 'dmFsdWUz' });
       await keyEntryStorage.clear();
       const keyEntries = await keyEntryStorage.list();
       expect(keyEntries).toHaveLength(0);

@@ -5,7 +5,7 @@ import { serializeKeyEntries, deserializeKeyEntries } from '../KeyEntryUtils';
 describe('KeyEntryUtils', () => {
   const keyEntry = {
     name: 'name',
-    value: Buffer.from('value'),
+    value: 'dmFsdWU=',
     meta: { key: 'value' },
     creationDate: new Date(0),
     modificationDate: new Date(0),
