@@ -3,15 +3,15 @@
 [![Build Status](https://img.shields.io/travis/VirgilSecurity/virgil-key-storage-rn.svg)](https://travis-ci.org/VirgilSecurity/virgil-key-storage-rn)
 [![GitHub license](https://img.shields.io/badge/license-BSD%203--Clause-blue.svg)](https://github.com/VirgilSecurity/virgil-key-storage-rn/blob/master/LICENSE)
 
-> Important! This README is for the pre-release version of `@virgilsecurity/key-storage-rn` - v0.2.0-alpha.0. If you are here for the latest stable version, check out the [v0.1.x branch](https://github.com/VirgilSecurity/virgil-key-storage-rn/tree/v0.1.x)
+> Important! This README is for `@virgilsecurity/key-storage-rn` v0.2.x. If you are here for the previous version, check out the [v0.1.x branch](https://github.com/VirgilSecurity/virgil-key-storage-rn/tree/v0.1.x)
 
 This package provides an implementation of [IKeyEntryStorage](https://github.com/VirgilSecurity/virgil-sdk-javascript/blob/master/src/Storage/KeyEntryStorage/IKeyEntryStorage.ts) for React Native.
 
 ## Install
 
-First you will need this package itself. Note the `@next` tag is required.
+First you will need this package itself.
 ```sh
-npm install @virgilsecurity/key-storage-rn@next
+npm install @virgilsecurity/key-storage-rn
 ```
 
 Then you'll need to install [react-native-keychain](https://github.com/oblador/react-native-keychain) if you're using React Native with native code.
