@@ -1,9 +1,13 @@
 export class VirgilKeyStorageRnError extends Error {
   name: string;
-  // tslint:disable-next-line variable-name
-  constructor(m: string, name: string = 'VirgilError', ParentClass: any = VirgilKeyStorageRnError) {
+  constructor(
+    m: string,
+    name: string = 'VirgilError',
+    // tslint:disable-next-line variable-name
+    DerivedClass: any = VirgilKeyStorageRnError,
+  ) {
     super(m);
-    Object.setPrototypeOf(this, ParentClass.prototype);
+    Object.setPrototypeOf(this, DerivedClass.prototype);
     this.name = name;
   }
 }
