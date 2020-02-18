@@ -23,9 +23,9 @@ And finally, make sure you have the VirgilCrypto library for React Native - [rea
 
 > If you use [E3kit](https://github.com/VirgilSecurity/virgil-e3kit-js/) then you don't need to install the packages listed below
 
-If you want to use this library without E3kit, you will need to make sure you have the current pre-release version (v6.x) of [virgil-sdk](https://github.com/VirgilSecurity/virgil-sdk-javascript) installed. This is where the high-level `PrivateKeyStorage` class is defined.
+If you want to use this library without E3kit, you will need to make sure you have the current version (v6.x) of [virgil-sdk](https://github.com/VirgilSecurity/virgil-sdk-javascript) installed. This is where the high-level `PrivateKeyStorage` class is defined.
 ```sh
-npm install virgil-sdk@next
+npm install virgil-sdk
 ```
 
 Then you'll need the package that contains helper classes depended upon by the `PrivateKeyStorage`, namely the `PrivateKeyExporter` class.
