@@ -1,8 +1,7 @@
-import { IKeyEntry } from 'virgil-sdk';
+import { IKeyEntry, KeyEntryDoesNotExistError, KeyEntryAlreadyExistsError } from 'virgil-sdk';
 
 import IStorage from '../IStorage';
 import KeyEntryStorage from '../KeyEntryStorage';
-import { KeyEntryAlreadyExistsError, KeyEntryDoesNotExistError } from '../errors';
 
 class Storage implements IStorage {
   private keyEntries: Map<string, IKeyEntry> = new Map();

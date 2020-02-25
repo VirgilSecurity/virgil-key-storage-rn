@@ -1,5 +1,5 @@
 import IStorage from './IStorage';
-import { KeyEntryAlreadyExistsError, KeyEntryDoesNotExistError } from './errors';
+import { KeyEntryDoesNotExistError, KeyEntryAlreadyExistsError } from 'virgil-sdk';
 
 type IKeyEntryStorage = import('virgil-sdk').IKeyEntryStorage;
 type IKeyEntry = import('virgil-sdk').IKeyEntry;
