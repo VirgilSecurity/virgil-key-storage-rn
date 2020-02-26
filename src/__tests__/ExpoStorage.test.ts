@@ -1,9 +1,9 @@
-import { SecureStore } from 'expo';
+import * as SecureStore from 'expo-secure-store';
 import { IKeyEntry } from 'virgil-sdk';
 
 import ExpoStorage from '../ExpoStorage';
 
-jest.mock('expo', () => {
+jest.mock('expo-secure-store', () => {
   const items = new Map<string, string>();
   const setItemAsync = function(key: string, value: string): Promise<void> {
     items.set(key, value);
@@ -24,11 +24,9 @@ jest.mock('expo', () => {
     return Promise.resolve();
   };
   return {
-    SecureStore: {
-      setItemAsync,
-      getItemAsync,
-      deleteItemAsync,
-    },
+    setItemAsync,
+    getItemAsync,
+    deleteItemAsync,
   };
 });
 
