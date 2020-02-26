@@ -16,7 +16,7 @@ export default class ExpoStorage implements IStorage {
   private readonly options?: SecureStore.SecureStoreOptions;
 
   constructor(options?: ExpoStorageOptions) {
-    console.warn('@Deprecated\nExpo will be removed in next major release *');
+    console.warn('Deprecated: (ノಠ益ಠ)ノ彡┻━┻ ExpoStorage will be removed in next major release.');
     if (typeof options !== 'undefined') {
       const { key, ...secureStoreOptions } = options;
       this.key = key || ExpoStorage.DEFAULT_KEY;

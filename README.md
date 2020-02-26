@@ -38,16 +38,16 @@ npm install @virgilsecurity/sdk-crypto
 With [E3kit](https://github.com/VirgilSecurity/virgil-e3kit-js/) you just need to install this package and it will be picked up automatically.
 
 For standalone installations, there are 2 options:
-- If you're using React Native with [ExpoKit](https://docs.expo.io/versions/v34.0.0/expokit/overview/):
-  > Important! Only ExpoKit is supported because `react-native-virgil-crypto` requires you to add custom native modules. So you will need to eject to ExpoKit to use this library.
-  ```js
-  import createExpoKeyEntryStorage from '@virgilsecurity/key-storage-rn/expo';
-  const keyEntryStorage = createExpoKeyEntryStorage();
-  ```
 - If you're using React Native with native code:
   ```js
   import createNativeKeyEntryStorage from '@virgilsecurity/key-storage-rn/native';
   const keyEntryStorage = createNativeKeyEntryStorage();
+  ```
+- If you're using Expo, you need to follow [their installation instructions](https://github.com/expo/expo/tree/master/packages/expo-secure-store):
+  > Please note that ExpoStorage will be removed in next major release in favor of native module.
+  ```js
+  import createExpoKeyEntryStorage from '@virgilsecurity/key-storage-rn/expo';
+  const keyEntryStorage = createExpoKeyEntryStorage();
   ```
 Both of them return an instance of class that implements [IKeyEntryStorage](https://github.com/VirgilSecurity/virgil-sdk-javascript/blob/master/src/Storage/KeyEntryStorage/IKeyEntryStorage.ts) interface.
 
