@@ -1,6 +1,6 @@
 {
   "name": "@virgilsecurity/key-storage-rn",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "IKeyEntryStorage implementation for React Native",
   "files": [
     "dist",
