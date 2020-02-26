@@ -16,7 +16,7 @@
     "test": "jest",
     "clean": "rimraf coverage dist",
     "build": "tsc --project tsconfig.build.json",
-    "prepare": "npm run clean && npm run build",
+    "prepare": "npm run clean && npm run test && npm run build",
     "eslint": "eslint **/*.js",
     "tslint": "tslint --project tsconfig.json",
     "lint": "npm run eslint && npm run tslint"
