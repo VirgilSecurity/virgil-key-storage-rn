@@ -7,15 +7,3 @@ node_js:
 script:
 - yarn lint
 - yarn test
-before_deploy:
-- yarn install
-deploy:
-  skip_cleanup: true
-  provider: npm
-  email: asmirnov@virgilsecurity.com
-  api_key:
-    secure: $NPM_ENCRYPTED_TOKEN
-  on:
-    tags: true
-    repo: VirgilSecurity/virgil-key-storage-rn
-    node: 13
