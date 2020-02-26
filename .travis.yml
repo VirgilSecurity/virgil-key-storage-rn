@@ -16,3 +16,4 @@ deploy:
     tags: true
     repo: VirgilSecurity/virgil-key-storage-rn
     branch: master
+    node: 13
