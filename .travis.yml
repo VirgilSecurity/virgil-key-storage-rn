@@ -7,6 +7,8 @@ node_js:
 script:
 - yarn lint
 - yarn test
+before_deploy:
+- yarn install
 deploy:
   provider: npm
   email: asmirnov@virgilsecurity.com
