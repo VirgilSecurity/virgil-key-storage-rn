@@ -19,7 +19,7 @@ yarn add @virgilsecurity/key-storage-rn
 ```
 
 ## Usage
-The following code snippet shows how to initialize the [KeyEntryStorage](https://github.com/VirgilSecurity/virgil-sdk-javascript/blob/master/src/Storage/KeyEntryStorage/KeyEntryStorage.ts) with an instnace of `ReactNativeKeychainStorageAdapter`:
+The following code snippet shows how to initialize the [KeyEntryStorage](https://github.com/VirgilSecurity/virgil-sdk-javascript/blob/master/src/Storage/KeyEntryStorage/KeyEntryStorage.ts) with an instance of `ReactNativeKeychainStorageAdapter`:
 ```js
 import { ReactNativeKeychainStorageAdapter } from '@virgilsecurity/key-storage-rn';
 import { KeyEntryStorage } from 'virgil-sdk';

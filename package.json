@@ -1,7 +1,7 @@
 {
   "name": "@virgilsecurity/key-storage-rn",
   "version": "1.0.0",
-  "description": "IKeyEntryStorage implementation for React Native",
+  "description": "IStorageAdapter implementation for React Native",
   "main": "./dist/key-storage-rn.cjs.js",
   "module": "./dist/key-storage-rn.es.js",
   "typings": "./dist/types/index.d.ts",
@@ -36,14 +36,12 @@
     "prettier": "2.0.2",
     "react-native-keychain": "^5.0.1",
     "rimraf": "^3.0.2",
+    "rollup": "^2.3.0",
+    "rollup-plugin-license": "^0.13.0",
+    "rollup-plugin-typescript2": "^0.27.0",
     "ts-jest": "^25.3.0",
     "typescript": "^3.8.3",
     "uuid": "^7.0.2",
     "virgil-sdk": "^6.1.0"
-  },
-  "dependencies": {
-    "rollup": "^2.3.0",
-    "rollup-plugin-license": "^0.13.0",
-    "rollup-plugin-typescript2": "^0.27.0"
   }
 }
