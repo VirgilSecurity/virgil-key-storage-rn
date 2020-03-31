@@ -1,12 +1,11 @@
 .DS_Store
 
-.vscode
 .idea
+.vscode
 
 node_modules
 package-lock.json
 yarn.lock
 *.log
 
-coverage
 dist

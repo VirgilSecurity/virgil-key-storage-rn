@@ -1,0 +1,21 @@
+{
+  "name": "Example",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start"
+  },
+  "dependencies": {
+    "@virgilsecurity/key-storage-rn": "../",
+    "react": "16.11.0",
+    "react-native": "0.62.0",
+    "react-native-keychain": "^5.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/runtime": "^7.9.2",
+    "metro-react-native-babel-preset": "^0.59.0"
+  }
+}

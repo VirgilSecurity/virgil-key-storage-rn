@@ -1,12 +1,45 @@
 {
-  "extends": [
-    "airbnb-base",
-    "prettier"
-  ],
-  "plugins": [
-    "prettier"
-  ],
-  "rules": {
-    "prettier/prettier": "error"
-  }
+  "root": true,
+  "overrides": [
+    {
+      "files": "*.js",
+      "extends": [
+        "eslint:recommended",
+        "prettier"
+      ],
+      "plugins": [
+        "prettier"
+      ],
+      "parserOptions": {
+        "ecmaVersion": 2019,
+        "sourceType": "module"
+      },
+      "env": {
+        "es6": true,
+        "node": true
+      },
+      "rules": {
+        "prettier/prettier": "error"
+      }
+    },
+    {
+      "files": "*.ts",
+      "parser": "@typescript-eslint/parser",
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint"
+      ],
+      "plugins": [
+        "@typescript-eslint",
+        "prettier"
+      ],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "prettier/prettier": "error"
+      }
+    }
+  ]
 }
